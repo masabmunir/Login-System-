@@ -1,0 +1,19 @@
+<div class="container mt-3">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3 mt-3">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email"
+        name="email">
+        <span class="text-danger" *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required','email')"> Email id is required </span>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="password">Password</label>
+      <input type="password" class="form-control"  id="password" formControlName="password" placeholder="Enter password"
+        name="password">
+        <span class="text-danger" *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')"> Password is required </span>
+    </div>
+    <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Submit</button>
+    <a routerLink="/signup" class="btn btn-link">Register Here</a>
+  </form>
+</div>
